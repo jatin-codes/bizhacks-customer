@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class PartnerMain extends Component {
+class Login extends Component {
     render (){
         return (
             <div>
@@ -11,4 +11,4 @@ class PartnerMain extends Component {
     }
 }
 
-export default PartnerMain;
+export default Login;
