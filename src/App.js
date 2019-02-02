@@ -8,6 +8,11 @@ import Transaction from './components/Transaction';
 import ProductDetail from './components/ProductDetail';
 
 class App extends Component {
+
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <div>
