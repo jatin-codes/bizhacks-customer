@@ -3,20 +3,54 @@ import axios from 'axios';
 
 class BestBuyAwards extends Component {
 
+    constructor(props){
+        super(props);
+
+        this.state = {
+            apiResponse: null,
+        }
+    }
+
     componentDidMount(){
         axios.get('https://bizhacks.bbycastatic.ca/mobile-si/si/v3/products/search?query=laptop&storeId=&zipCode=&facetsOnly=&platform=&lang=en')
         .then(response => {
-            console.log(response.data);
+            this.setState({
+                apiResponse: response.data.searchApi.documents,                
+            });
+
+            // console.log(this.state.apiResponse)
         })
     }
 
-
-
     render (){
+        const {apiResponse} = this.state;
+console.log(apiResponse);
         return (
             <div>
-                <h2>Partner Main component</h2>
-                <p>here we show the static webpage for the organization which already exists</p>
+                <h2>Redeemable products</h2>
+                <hr/>
+{
+    apiResponse && 
+        <div className="product-container">
+        {
+            apiResponse.map(product => {
+                return(
+                    <div className="products-card">
+                        <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
+                        <h5>{product.summary.names.short}</h5>
+                        <h4 style={{color: "red", margin:0}}>${product.priceBlock.itemPrice.currentPrice}</h4>
+                        {/* <p>{product.skuId}</p> */}
+                        {/* <p>{product.summary.customerRatings.averageRating.score}</p> */}
+                        <div className="card-shop-button">
+                            <h6>SHOP NOW > </h6>
+                        </div>
+                    </div>
+                )
+            })
+}
+        </div>
+
+}
             </div>
         )
     }
