@@ -1,14 +1,43 @@
 import React, {Component} from 'react';
-import { Button } from 'antd';
-
+import {Link, Redirect} from 'react-router-dom';
 
 class Rewards extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            renderRedirect : false,
+        }
+    }
+
+    handleClick(c){
+        if (c === "Best-Buy"){
+            this.setState({
+                renderRedirect : true,
+            })
+        }
+        else {
+            window.location = `https://www.${c}.ca`;
+        }
+    }
+    
     render (){
+
+        const companies = ["Apple", "Best-Buy", "Amazon", "Sportchek"];
+
         return (
-            <div>
-                <Button>test</Button>
-                <h2>Partner Main component</h2>
-                <p>here we show the static webpage for the organization which already exists</p>
+            <div className="rewards-div">
+                <h2>LOYALTY REWARDS</h2>
+                <hr/>
+                    
+                <div>
+                    {companies.map(c => (
+                        <div className="reward-company-divs" onClick={() => this.handleClick(c)} key={c}>
+                            <h3>{c}</h3>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }

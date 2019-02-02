@@ -6,16 +6,13 @@ import Rewards from './components/Rewards';
 import Login from './components/Login';
 import Transaction from './components/Transaction';
 import ProductDetail from './components/ProductDetail';
-
+import Navbar from './components/Navbar';
 class App extends Component {
-
-  componentDidMount(){
-    
-  }
 
   render() {
     return (
       <div>
+        <Navbar/>
         <BrowserRouter>
         <div>
           <Route exact path="/" component= {PartnerMain}/>
