@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 
 class Rewards extends Component {
 
@@ -24,6 +25,10 @@ class Rewards extends Component {
     render (){
 
         const companies = ["Apple", "Best-Buy", "Amazon", "Sportchek"];
+
+        if(this.state.renderRedirect === true){
+            return <Redirect to="/bestbuy"/>
+        }
 
         return (
             <div className="rewards-div">
