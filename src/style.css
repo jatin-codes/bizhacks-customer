@@ -20,9 +20,20 @@ h1 {
   text-align: center;
   padding: 1.5rem 2.5rem;
   background-image: linear-gradient(120deg, #0A4ABF 0%, #0A4ABF 100%);
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   font-size: 1.5rem;
   color: white;
+  display: inline-block;
+  margin-bottom: 0px; 
+}
+
+h3 {
+  text-align: right;
+  padding: 1.5rem 2.5rem;
+  background-image: linear-gradient(120deg, #FFF 0%, #FFF 100%);
+  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  color: blue;
 }
 
 img {
@@ -82,12 +93,21 @@ p {
 
 
 /* header */
+.top-header-div{
+  background-color: #FFF;
+  height: 120px;
+}
+
 .header-div{
   background-color: #0A4ABF;
   height: 120px;
 }
 
 .logo-bb{
+  float: left;
+  height: 90px;
+}
+.logo-any{
   float: left;
   height: 90px;
   margin: 1rem 20px;
