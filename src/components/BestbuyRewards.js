@@ -38,11 +38,13 @@ console.log(apiResponse);
                     <div className="products-card">
                         <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
                         <h5>{product.summary.names.short}</h5>
-                        <h4 style={{color: "red", margin:0}}>${product.priceBlock.itemPrice.currentPrice}</h4>
-                        {/* <p>{product.skuId}</p> */}
+                        <div className="price-div">
+                            <h4 style={{color: "red", margin:0}}>${product.priceBlock.itemPrice.currentPrice}</h4>
+                            <p>{product.skuId}</p>
+                        </div>
                         {/* <p>{product.summary.customerRatings.averageRating.score}</p> */}
                         <div className="card-shop-button">
-                            <h6>SHOP NOW > </h6>
+                            <h5>SHOP NOW > </h5>
                         </div>
                     </div>
                 )

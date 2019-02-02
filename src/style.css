@@ -160,6 +160,19 @@ p {
 .card-shop-button{
   border: 1px solid #f3f3;
   background-color: beige;
-  padding: 0 10px;
+  padding: 0 5px;
   border-radius: 5px 5px;
+}
+
+.card-shop-button > h5 {
+  margin: 10px;
+}
+
+.price-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-div > p  {
+  padding: 0;
 }
