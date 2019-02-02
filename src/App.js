@@ -27,7 +27,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        {
+          this.state.val &&
+
+          <Navbar img={this.state.val.image}/>
+        }
         <BrowserRouter>
         <div>
           <Route exact path="/" component= {PartnerMain}/>
