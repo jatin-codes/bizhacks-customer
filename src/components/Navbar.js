@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import bblogo from '../logo.png';
-import rbclogo from '../rbc.png';
 import tdlogo from '../td.png';
 
 export default class Navbar extends Component {

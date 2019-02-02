@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 class BestBuyAwards extends Component {
 
@@ -8,7 +9,13 @@ class BestBuyAwards extends Component {
 
         this.state = {
             apiResponse: null,
+            renderResponse: false,
+            skuId: null,
         }
+    }
+
+    handleClick(skuId) {
+        this.setState({skuId, renderResponse: true})
     }
 
     componentDidMount(){
@@ -23,8 +30,12 @@ class BestBuyAwards extends Component {
     }
 
     render (){
-        const {apiResponse} = this.state;
-console.log(apiResponse);
+        const {apiResponse, renderResponse, skuId} = this.state;
+
+        if(renderResponse){
+            return <Redirect to="/productDetail" skuId={skuId}/>
+        }
+
         return (
             <div>
                 <h2>Redeemable products</h2>
@@ -35,7 +46,7 @@ console.log(apiResponse);
         {
             apiResponse.map(product => {
                 return(
-                    <div className="products-card">
+                    <div className="products-card" onClick={() => this.handleClick(product.skuId)}>
                         <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
                         <h5>{product.summary.names.short}</h5>
                         <div className="price-div">

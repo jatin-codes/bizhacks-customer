@@ -18,12 +18,9 @@ class App extends Component {
   }
   componentDidMount() {
     database.ref('/Vendor').on('value',(snapshot) => {
-      console.log(snapshot.val());
       this.setState({
         val: snapshot.val()
       });
-
-      console.log(this.state.val.RBC.name);
  })
 }; 
 
