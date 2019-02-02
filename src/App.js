@@ -7,7 +7,25 @@ import Login from './components/Login';
 import Transaction from './components/Transaction';
 import ProductDetail from './components/ProductDetail';
 import Navbar from './components/Navbar';
+import { database } from './firebase/config'
+
 class App extends Component {
+  constructor(props){
+    super(props);
+      this.state={
+        val: ""
+      };
+  }
+  componentDidMount() {
+    database.ref('/Vendor').on('value',(snapshot) => {
+      console.log(snapshot.val());
+      this.setState({
+        val: snapshot.val()
+      });
+
+      console.log(this.state.val.RBC.name);
+ })
+}; 
 
   render() {
     return (
