@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
-class BestBuyAwards extends Component {
+class BestBuyRewards extends Component {
 
     constructor(props){
         super(props);
@@ -32,8 +32,32 @@ class BestBuyAwards extends Component {
     render (){
         const {apiResponse, renderResponse, skuId} = this.state;
 
+        console.log(skuId);
+
         if(renderResponse){
-            return <Redirect to="/productDetail" skuId={skuId}/>
+            // return this.context.router.push({
+            //     pathName: "/productDetails",
+            //     state: {productId: "ASDASDA"}
+            // })
+
+            // window.location('/productDetails/' + '/asdasd');
+            // return <Redirect to="/productDetail:productId" />
+
+            return <Redirect
+                to={{
+                pathname: "/productDetails",
+                state: { from: skuId }
+                }}
+            />
+
+            // window.localStorage.setItem("productId", "ASDASD");
+            // // return <Redirect to='/productDetails/' pId='123'/>
+            // return <Redirect to={{
+            //     pathname: '/productDetails/',
+            //      pId: '123'
+            // }}
+
+    // />
         }
 
         return (
@@ -46,7 +70,7 @@ class BestBuyAwards extends Component {
         {
             apiResponse.map(product => {
                 return(
-                    <div className="products-card" onClick={() => this.handleClick(product.skuId)}>
+                    <div key={product.skuId} className="products-card" onClick={() => this.handleClick(product.skuId)}>
                         <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
                         <h5>{product.summary.names.short}</h5>
                         <div className="price-div">
@@ -69,4 +93,4 @@ class BestBuyAwards extends Component {
     }
 }
 
-export default BestBuyAwards;
+export default BestBuyRewards;
