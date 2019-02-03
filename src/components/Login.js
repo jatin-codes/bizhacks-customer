@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-
+import {Redirect} from 'react-router-dom';
 class Login extends Component {
 
     constructor(props) {
@@ -14,7 +14,20 @@ class Login extends Component {
     }
     submitLogin(e) {}
 
+    handleClick() {
+        this.setState({renderResponse: true})
+    }
+
     render() {
+        const {renderResponse, point, name} = this.state;
+        if (renderResponse){
+            return <Redirect to={{
+                pathname: "/bestbuy",
+                state: {
+                    point, name
+                }
+            }} />
+        }
         return (
             <div className="inner-container">
         <div className="header">
@@ -44,7 +57,7 @@ class Login extends Component {
             type="button"
             className="login-btn"
             onClick={this
-            .submitLogin
+            .handleClick
             .bind(this)}>Login</button>
         </div>
       </div>

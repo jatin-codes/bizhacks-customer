@@ -19,6 +19,12 @@ class BestBuyAwards extends Component {
     }
 
     componentDidMount(){
+
+        const point = this.props.location.state.point
+        const name = this.props.location.state.name
+
+        console.log(point, name);
+
         axios.get('https://bizhacks.bbycastatic.ca/mobile-si/si/v3/products/search?query=laptop&storeId=&zipCode=&facetsOnly=&platform=&lang=en')
         .then(response => {
             this.setState({
