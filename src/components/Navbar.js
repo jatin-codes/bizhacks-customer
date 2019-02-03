@@ -6,13 +6,9 @@ export default class Navbar extends Component {
     render() {
         return (
             <div>
-                {/* <div className="top-header-div">
-                    <img src={rbclogo} alt="rbc rewards" className="logo-any" />
-                    <h3>Hi Bob</h3>
-                </div> */}
                 <div className="top-header-div">
-                    <img src={tdlogo} alt="td rewards" className="logo-any" />
-                    <h4>Hi Bob</h4>
+                    <img src={this.props.img} alt="logo" className="logo-any" />
+                    <h4>Hi, {this.props.name}</h4>
                 </div>
                 <div className="header-div">
                     <img src={bblogo} alt="bestbuy logo" className="logo-bb" />

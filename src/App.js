@@ -13,7 +13,9 @@ class App extends Component {
   constructor(props){
     super(props);
       this.state={
-        val: ""
+        val: "",
+        isLoginOpen: true,
+        isRegisterOpen: false
       };
   }
   componentDidMount() {
@@ -27,7 +29,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        {
+          this.state.val &&
+
+          <Navbar img={this.state.val.image}/>
+        }
         <BrowserRouter>
         <div>
           <Route exact path="/" component= {PartnerMain}/>
@@ -38,7 +44,11 @@ class App extends Component {
           <Route exact path="/Transaction" component= {Transaction}/>
           </div>
         </BrowserRouter>
+        <div className="root-container">
+ 
+          </div>
       </div>
+      
     );
   }
 }
