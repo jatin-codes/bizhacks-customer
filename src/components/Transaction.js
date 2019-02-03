@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
+import success from '../succss.png';
 
 class Transaction extends Component {
     render (){
         return (
             <div>
-                <h2>Partner Main component</h2>
-                <p>here we show the static webpage for the organization which already exists</p>
+                <img src={success} alt="test"/ >
             </div>
         )
     }
 }
 
-export default Transaction;
+export default Transaction; 
