@@ -366,3 +366,8 @@ body,
 .show {
     visibility: visible;
 }
+
+.user_div{ 
+  display: flex;
+  justify-content: flex-end;
+}

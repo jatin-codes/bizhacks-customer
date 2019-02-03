@@ -42,9 +42,6 @@ class BestBuyRewards extends Component {
     render (){
         const {apiResponse, renderResponse, skuId} = this.state;
 
-        console.log(skuId);
-        console.log(this.props.test, "*@*#sssss");
-
         if(renderResponse){
             // return this.context.router.push({
             //     pathName: "/productDetails",
@@ -74,9 +71,10 @@ class BestBuyRewards extends Component {
         return (
             <div>
                 <h2>Redeemable products</h2>
-                <div>
-                    <h3>Welcome back, {this.state.name}</h3>
-                    <h3>You got {this.state.point} points</h3>
+                <div className="user_div">
+                    <h3>Welcome back, {this.state.name}!     </h3>
+                    <br/>
+                    <h3 style={{color: "Blue"}}>You got {this.state.point} points</h3>
                 </div>
                 <hr/>
 {
@@ -89,8 +87,7 @@ class BestBuyRewards extends Component {
                         <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
                         <h5>{product.summary.names.short}</h5>
                         <div className="price-div">
-                            <h5>${product.priceBlock.itemPrice.currentPrice}</h5>
-                            <p>{product.skuId}</p>
+                            <h5>REGULAR PRICE$  {product.priceBlock.itemPrice.currentPrice}</h5>
                             <h4 style={{color: "red", margin:0}}>{product.priceBlock.itemPrice.currentPrice * 50}</h4>
                         </div>
                         {/* <p>{product.summary.customerRatings.averageRating.score}</p> */}
