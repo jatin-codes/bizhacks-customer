@@ -11,6 +11,8 @@ class BestBuyRewards extends Component {
             apiResponse: null,
             renderResponse: false,
             skuId: null,
+            point: null,
+            name: null,
         }
     }
 
@@ -23,7 +25,10 @@ class BestBuyRewards extends Component {
         const point = this.props.location.state.point
         const name = this.props.location.state.name
 
-        console.log(point, name);
+        this.setState({
+            point, 
+            name
+        })
 
         axios.get('https://bizhacks.bbycastatic.ca/mobile-si/si/v3/products/search?query=laptop&storeId=&zipCode=&facetsOnly=&platform=&lang=en')
         .then(response => {
@@ -69,6 +74,10 @@ class BestBuyRewards extends Component {
         return (
             <div>
                 <h2>Redeemable products</h2>
+                <div>
+                    <h3>Welcome back, {this.state.name}</h3>
+                    <h3>You got {this.state.point} points</h3>
+                </div>
                 <hr/>
 {
     apiResponse && 

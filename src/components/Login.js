@@ -28,6 +28,8 @@ class Login extends Component {
                 }
             }} />
         }
+
+        console.log(this.state);
         return (
             <div className="inner-container">
         <div className="header">
@@ -39,8 +41,9 @@ class Login extends Component {
             <label htmlFor="username">Username</label>
             <input
               type="text"
-              name="username"
+              value={this.state.name}
               className="login-input"
+              onChange={(e) => this.setState({name: e.target.value})}
               placeholder="Username"/>
           </div>
 
