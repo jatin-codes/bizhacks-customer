@@ -14,8 +14,7 @@ class BestBuyRewards extends Component {
             point: null,
             name: null,
         }
-    }
-
+    };
     handleClick(skuId) {
         this.setState({skuId, renderResponse: true})
     }
@@ -44,6 +43,7 @@ class BestBuyRewards extends Component {
         const {apiResponse, renderResponse, skuId} = this.state;
 
         console.log(skuId);
+        console.log(this.props.test, "*@*#sssss");
 
         if(renderResponse){
             // return this.context.router.push({
@@ -89,8 +89,9 @@ class BestBuyRewards extends Component {
                         <img src={product.summary.media.primaryImage.url} alt="item" className="product-image"/>
                         <h5>{product.summary.names.short}</h5>
                         <div className="price-div">
-                            <h4 style={{color: "red", margin:0}}>${product.priceBlock.itemPrice.currentPrice}</h4>
+                            <h5>${product.priceBlock.itemPrice.currentPrice}</h5>
                             <p>{product.skuId}</p>
+                            <h4 style={{color: "red", margin:0}}>{product.priceBlock.itemPrice.currentPrice * 50}</h4>
                         </div>
                         {/* <p>{product.summary.customerRatings.averageRating.score}</p> */}
                         <div className="card-shop-button">

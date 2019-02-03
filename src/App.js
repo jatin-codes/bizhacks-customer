@@ -39,7 +39,7 @@ class App extends Component {
           <Route exact path="/" component= {PartnerMain}/>
           <Route exact path="/rewards" component={Rewards}/>
           <Route exact path="/login" component= {Login}/>
-          <Route exact path="/bestbuy" component= {BestbuyRewards}/>
+          <Route exact path="/bestbuy" component= {BestbuyRewards} test={this.state.val.point}/>
           <Route exact path="/productDetails" component= {ProductDetail}/>
           <Route exact path="/Transaction" component= {Transaction}/>
           </div>
