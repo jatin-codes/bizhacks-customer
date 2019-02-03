@@ -177,7 +177,13 @@ p {
   padding: 0;
 }
 
+.description-image-div > img{
+  display: inline;
+}
 
+.id-div > p {
+  display: inline-block;
+}
 
 html,
 body,
