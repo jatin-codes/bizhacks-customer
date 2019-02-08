@@ -21,9 +21,16 @@ class BestBuyRewards extends Component {
 
     componentDidMount(){
 
-        const point = this.props.location.state.point
-        const name = this.props.location.state.name
+        let point = 50;
+        let name = "Bob";
 
+        if(this.props.location.state){
+            point = this.props.location.state.point;
+        }
+
+        if(this.props.location.state){
+            name = this.props.location.state.name;
+        }
         this.setState({
             point, 
             name

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Button} from 'antd';
+import {Link} from 'react-router-dom';
 
 class ProductDetail extends Component {
 
@@ -63,7 +64,7 @@ class ProductDetail extends Component {
                             <p>{apiResponse.meta.description}</p>
                         </div>
                         
-                        <Button type="primary" shape="round" icon="download" size={"large"}>CHECKOUT</Button>
+                        <Link to = "/transaction"><Button style={{height: "50px", color: "White", backgroundColor: "Blue"}}type="primary" shape="round" icon="download" size="large">CHECKOUT</Button></Link>
                     </div>
             }
             </div>
